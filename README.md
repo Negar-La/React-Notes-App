@@ -1,4 +1,4 @@
-# React-Notes-App
+
 <h1 align="center">✍️ Welcome to React Notes App! ✍️</h1>
 <p align="center">📌 <strong> A modern responsive react notes app </strong></p>
 
