@@ -7,6 +7,5 @@
 
 <p align="center"> Click <a href="https://react-notes-app-8uii.onrender.com/" target="_blank"><strong> Here</strong> </a> to view the deployed website at render.com </p>
 
-<a href="https://react-notes-app-8uii.onrender.com/" target="_blank"> 
-![Screenshot of React Notes App!](./client/public/notes1.jpg "Screenshot of React Notes App!")
- </a>
+
+ [<img src="./client/public/notes1.jpg" >](https://react-notes-app-8uii.onrender.com/)
