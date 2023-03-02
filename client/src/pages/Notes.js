@@ -111,7 +111,7 @@ const EmptyNotes = styled.p`
 const AddBtn = styled.button`
     position: fixed;
     bottom: 4rem;
-    right: 12rem;
+    right: 7rem;
     padding: 1rem;
     @media screen and (max-width: 650px) {
         padding: 1.5rem;
