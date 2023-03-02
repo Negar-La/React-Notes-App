@@ -48,6 +48,10 @@ const Note = styled(Link)`
         grid-column: 1/3;
         background: var(--color-pink);
     }
+
+    @media screen and (max-width: 650px) {
+   
+    }
 `
 
 

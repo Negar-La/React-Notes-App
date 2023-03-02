@@ -63,7 +63,7 @@ const Notes = ({notes}) => {
 }
 
 const NotesHeader = styled.div`
-     display: flex;
+    display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 1.6rem 1.5rem;
@@ -71,14 +71,22 @@ const NotesHeader = styled.div`
     z-index: 9;
     input {
         padding: 0.7rem 1rem;
-    background: transparent;
-    border: 1px solid var(--color-bg-dark);
-    border-radius: 0.6rem;
-    color: var(--color-white);
-    font-size: 1.1rem;
-    width: 100%;
-    margin-right: 1.5rem;
+        background: transparent;
+        border: 1px solid var(--color-bg-dark);
+        border-radius: 0.6rem;
+        color: var(--color-white);
+        font-size: 1.1rem;
+        width: 100%;
+        margin-right: 1.5rem;
     }
+
+    @media screen and (max-width: 650px) {
+        width: 100%;
+        padding: 2rem 1rem;
+        position: fixed;
+        top: 0;
+        left: 0;
+ }
 `;
 
 const NotesContainer = styled.div`
@@ -87,6 +95,11 @@ const NotesContainer = styled.div`
     gap: 1.4rem;
     padding: 0 10%;
     text-align: justify;
+    @media screen and (max-width: 650px) {
+        margin-top: 5rem;
+        gap: 1rem;
+        padding: 0px;
+ }
 `;
 
 const EmptyNotes = styled.p`
@@ -98,8 +111,14 @@ const EmptyNotes = styled.p`
 const AddBtn = styled.button`
     position: fixed;
     bottom: 4rem;
-    right: 7rem;
+    right: 12rem;
     padding: 1rem;
+    @media screen and (max-width: 650px) {
+        padding: 1.5rem;
+        font-size: 1.5rem;
+        bottom: 6%;
+        right: 2rem;
+ }
 `
 
 export default Notes

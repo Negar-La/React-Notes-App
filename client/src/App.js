@@ -33,12 +33,15 @@ const App = () => {
 }
 
 const Main = styled.main`
-   background: var(--color-bg-black);
+    background: var(--color-bg-black);
     height: 100vh;
     width: 100vw;
     padding: 2rem 1.6rem;
     overflow-y: scroll;
     position: relative;
+    @media screen and (max-width: 650px) {
+        padding: 2rem 1rem;
+    }
 `
 
 export default App;
