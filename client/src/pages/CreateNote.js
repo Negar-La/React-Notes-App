@@ -3,6 +3,7 @@ import {IoIosArrowBack} from 'react-icons/io';
 import { useState } from "react";
 import {v4 as uuid} from 'uuid';
 import useCreateDate from "../components/useCreateDate";
+import styled from "styled-components";
 
 const CreateNote = ({setNotes}) => {
 
@@ -29,10 +30,12 @@ const CreateNote = ({setNotes}) => {
 
   return (
     <section>
-        <header className="create-note__header">
-            <Link to='/' className="btn"><IoIosArrowBack/></Link>
-            <button className="btn lg primary" onClick={handleSubmit} >Save</button>
-        </header>
+        <Header className="create-note__header">
+            <button>
+                <Link to='/' style={{ color: '#FFF' }}><IoIosArrowBack/></Link>
+            </button>
+            <SaveBtn onClick={handleSubmit} >Save</SaveBtn>
+        </Header>
         <form className="create-note__form" onSubmit={handleSubmit} >
             <input 
                 type='text' 
@@ -50,5 +53,18 @@ const CreateNote = ({setNotes}) => {
     </section>
   )
 }
+
+const SaveBtn = styled.button`
+     background: var(--color-primary);
+     padding: 0.8rem 1.5rem;
+    font-size: 1.2rem;
+    box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.4);
+`
+
+const Header = styled.header`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`
 
 export default CreateNote

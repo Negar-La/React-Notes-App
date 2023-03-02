@@ -4,6 +4,7 @@ import {BsPlusLg} from 'react-icons/bs';
 import {MdClose} from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import NoteItem from '../components/NoteItem';
+import styled from "styled-components";
 
 const Notes = ({notes}) => {
 
@@ -26,7 +27,7 @@ const Notes = ({notes}) => {
 
   return (
     <section>
-        <header className='notes__header'>
+        <NotesHeader>
            {!showSearch && <h2>My Notes</h2>} 
            {showSearch && 
             <input 
@@ -36,12 +37,12 @@ const Notes = ({notes}) => {
                 value={text}
                 onChange={(e) => {setText(e.target.value); handleSearch()}}
             />} 
-            <button className='btn' onClick={() => setShowSearch(!showSearch)} >
+            <button onClick={() => setShowSearch(!showSearch)} >
                 {showSearch ? <MdClose/> : <CiSearch/>}
             </button>
-        </header>
-        <div className='notes__container'>
-            {filteredNotes.length === 0 && <p className="empty__notes">No Note Found.</p>}
+        </NotesHeader>
+        <NotesContainer>
+            {filteredNotes.length === 0 && <EmptyNotes>No Note Found.</EmptyNotes>}
             { 
             // first we had notes.map but then change it to the state (filteredNotes) that we have.
                 filteredNotes.map((note) => {
@@ -50,12 +51,55 @@ const Notes = ({notes}) => {
                     )
                 })
             }
-        </div>
-        <Link to='/create-note' className='btn add__btn'>
-            <BsPlusLg/>
-        </Link>
+        </NotesContainer>
+        <AddBtn>
+          <Link to='/create-note' style={{ color: '#FFF' }}>
+             <BsPlusLg/>
+          </Link>
+        </AddBtn>
+      
     </section>
   )
 }
+
+const NotesHeader = styled.div`
+     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.6rem 1.5rem;
+    background: var(--color-bg-black);
+    z-index: 9;
+    input {
+        padding: 0.7rem 1rem;
+    background: transparent;
+    border: 1px solid var(--color-bg-dark);
+    border-radius: 0.6rem;
+    color: var(--color-white);
+    font-size: 1.1rem;
+    width: 100%;
+    margin-right: 1.5rem;
+    }
+`;
+
+const NotesContainer = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.4rem;
+    padding: 0 10%;
+    text-align: justify;
+`;
+
+const EmptyNotes = styled.p`
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+`
+const AddBtn = styled.button`
+    position: fixed;
+    bottom: 4rem;
+    right: 7rem;
+    padding: 1rem;
+`
 
 export default Notes

@@ -3,6 +3,7 @@ import {IoIosArrowBack} from 'react-icons/io';
 import {RiDeleteBin6Line} from 'react-icons/ri';
 import { useState } from "react";
 import useCreateDate from "../components/useCreateDate";
+import styled from "styled-components";
 
 const EditNote = ({notes, setNotes}) => {
 
@@ -49,11 +50,13 @@ const EditNote = ({notes, setNotes}) => {
 
   return (
     <section>
-        <header className="create-note__header">
-            <Link to='/' className="btn"><IoIosArrowBack/></Link>
-            <button className="btn lg primary" onClick={handleForm} >Save</button>
-            <button className="btn danger" onClick={handleDelete} ><RiDeleteBin6Line/></button>
-        </header>
+        <Header>
+          <button>
+            <Link to='/' style={{ color: '#FFF' }} ><IoIosArrowBack/></Link>
+          </button>     
+            <SaveBtn onClick={handleForm} >Save</SaveBtn>
+            <DeleteBtn onClick={handleDelete} ><RiDeleteBin6Line/></DeleteBtn>
+        </Header>
         <form className="create-note__form" onSubmit={handleForm}>
             <input type='text' placeholder="Title" value={title} onChange={(e)=> setTitle(e.target.value) } autoFocus/>
             <textarea rows='28' placeholder="Note details..." value={details} onChange={(e) => setDetails(e.target.value) } ></textarea>
@@ -61,5 +64,22 @@ const EditNote = ({notes, setNotes}) => {
     </section>
   )
 } 
+
+const DeleteBtn = styled.button`
+    background: var(--color-danger);
+`;
+
+const SaveBtn = styled.button`
+    padding: 0.8rem 1.5rem;
+    font-size: 1.2rem;
+    box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.4);
+    background: var(--color-primary);
+`
+
+const Header = styled.header`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`
 
 export default EditNote
