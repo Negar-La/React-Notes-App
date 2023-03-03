@@ -56,13 +56,14 @@ const Wrapper = styled.div`
     padding: 20px;
     text-align: center;
     label {
-        font-size: 1.5rem;
+        font-size: 1.1rem;
         &:after {
             content: "Are you sure you want to delete this note ?";
         }
     }
     button {
         padding: 0.8rem;
+        font-size: 1.1rem;
         margin: 1rem;
     }
 
