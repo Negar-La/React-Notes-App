@@ -52,12 +52,11 @@ const Notes = ({notes}) => {
                 })
             }
         </NotesContainer>
-        <AddBtn>
-          <Link to='/create-note' style={{ color: '#FFF' }}>
-             <BsPlusLg/>
-          </Link>
-        </AddBtn>
-      
+        <Link to='/create-note' style={{ color: '#FFF' }}>
+          <AddBtn> 
+            <BsPlusLg/> 
+          </AddBtn>
+        </Link>
     </section>
   )
 }

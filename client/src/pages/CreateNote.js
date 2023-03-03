@@ -22,21 +22,19 @@ const CreateNote = ({setNotes}) => {
             //add this note to the Notes array
             setNotes(prevNotes => [note, ...prevNotes])
             // console.log(note);
-            //redirect to HomePage
-            navigate ('/')
+            navigate ('/')    //redirect to HomePage
         }
-
     }
 
   return (
     <section>
-        <Header className="create-note__header">
-            <button>
-                <Link to='/' style={{ color: '#FFF' }}><IoIosArrowBack/></Link>
-            </button>
+        <Header >
+            <Link to='/' style={{ color: '#FFF' }}>
+                <button><IoIosArrowBack/></button> 
+            </Link>
             <SaveBtn onClick={handleSubmit} >Save</SaveBtn>
         </Header>
-        <form className="create-note__form" onSubmit={handleSubmit} >
+        <form onSubmit={handleSubmit} >
             <input 
                 type='text' 
                 placeholder="Title" 

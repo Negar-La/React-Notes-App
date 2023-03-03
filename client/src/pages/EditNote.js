@@ -4,6 +4,7 @@ import {RiDeleteBin6Line} from 'react-icons/ri';
 import { useState } from "react";
 import useCreateDate from "../components/useCreateDate";
 import styled from "styled-components";
+import DeleteModal from "../components/DeleteModal";
 
 const EditNote = ({notes, setNotes}) => {
 
@@ -17,6 +18,8 @@ const EditNote = ({notes, setNotes}) => {
 
   const date = useCreateDate();
   const navigate = useNavigate()
+
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const handleForm = (e) => {
     e.preventDefault();
@@ -36,28 +39,16 @@ const EditNote = ({notes, setNotes}) => {
     navigate('/')
   }
 
-  const handleDelete = () => {
-    if (window.confirm("Are you sure you want to delete ?")) {
-
-    //create a new array (newNotes) containing all notes except the note with the current id.
-    const newNotes = notes.filter(item => item.id !== id);
-    setNotes(newNotes);
-    navigate('/')
-    }
-
-  }
-
 
   return (
     <section>
         <Header>
-          <button>
-            <Link to='/' style={{ color: '#FFF' }} ><IoIosArrowBack/></Link>
-          </button>     
+            <Link to='/' style={{ color: '#FFF' }} ><button><IoIosArrowBack/></button></Link>
             <SaveBtn onClick={handleForm} >Save</SaveBtn>
-            <DeleteBtn onClick={handleDelete} ><RiDeleteBin6Line/></DeleteBtn>
+            <DeleteBtn onClick={(e) => setModalIsOpen(true)} ><RiDeleteBin6Line/></DeleteBtn>
+            <DeleteModal modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} notes={notes} setNotes={setNotes}/>
         </Header>
-        <form className="create-note__form" onSubmit={handleForm}>
+        <form onSubmit={handleForm}>
             <input type='text' placeholder="Title" value={title} onChange={(e)=> setTitle(e.target.value) } autoFocus/>
             <textarea rows='28' placeholder="Note details..." value={details} onChange={(e) => setDetails(e.target.value) } ></textarea>
         </form>
