@@ -1,10 +1,10 @@
 import Modal from 'react-modal';
 import styled from 'styled-components';
 import {CgDanger} from 'react-icons/cg';
-import { Link, useParams, useNavigate} from "react-router-dom"
+import {useParams, useNavigate} from "react-router-dom"
 
 
-const DeleteModal = ({modalIsOpen, notes, setNotes}) => {
+const DeleteModal = ({modalIsOpen, setModalIsOpen, notes, setNotes}) => {
 
     const {id} = useParams();  
     const navigate = useNavigate()
@@ -40,8 +40,8 @@ const DeleteModal = ({modalIsOpen, notes, setNotes}) => {
                 <CgDanger  size={65}  />
                 <label></label>
                 <div>
-                <button onClick={handleDelete} >Yes, delete it!</button>
-                <Link to='/' style={{ color: '#FFF' }} ><button>No, cancel!</button></Link>
+                    <button onClick={handleDelete} >Yes, delete it!</button>
+                    <button onClick={(e) => setModalIsOpen(false)} >No, cancel!</button>
                 </div>
             </Wrapper>
         </Modal>
